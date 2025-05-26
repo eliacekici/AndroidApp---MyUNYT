@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="?attr/colorPrimarySurface">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="4dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_phone"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="Phone icon" />
+
+        <TextView
+            android:id="@+id/footer_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+ 355 4 4512345"
+            android:textSize="14sp"
+            android:textColor="@color/butter_milk" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/footer_email_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="info@unyt.edu.al | admissions@unyt.edu.al"
+        android:textSize="14sp"
+        android:textColor="@color/butter_milk"
+        android:paddingBottom="4dp" />
+
+    <TextView
+        android:id="@+id/footer_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rruga e Kavajës, Pranë 21 Dhjetorit (Sheshi Ataturk), Tiranë, Shqipëri"
+        android:textSize="14sp"
+        android:textColor="@color/butter_milk"
+        android:paddingBottom="4dp" />
+
+    <TextView
+        android:id="@+id/footer_copyright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="© UNIVERSITY OF NEW YORK TIRANA"
+        android:textSize="14sp"
+        android:textColor="@color/butter_milk"
+        android:paddingBottom="4dp" />
+
+</LinearLayout>

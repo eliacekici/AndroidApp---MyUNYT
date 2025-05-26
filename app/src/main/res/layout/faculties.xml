@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/fullpage_gradient_background">
+
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="32dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Rate Your Professors"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/selectedFacultyTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select a Faculty"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="60dp"
+            android:layout_marginTop="24dp"/>
+
+        <RadioGroup
+            android:id="@+id/facultyRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp">
+
+            <RadioButton
+                android:id="@+id/radioEconomy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Faculty of Economy and Business"
+                android:textSize="16sp"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:button="@drawable/radio_button_selector"
+                android:background="@drawable/clickable_text_background"/>
+
+            <RadioButton
+                android:id="@+id/radioLaw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Faculty of Law and Social Sciences"
+                android:textSize="16sp"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:button="@drawable/radio_button_selector"
+                android:background="@drawable/clickable_text_background"/>
+
+            <RadioButton
+                android:id="@+id/radioEngineering"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Faculty of Engineering and Architecture"
+                android:textSize="16sp"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:button="@drawable/radio_button_selector"
+                android:background="@drawable/clickable_text_background"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/continueButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Continue"
+            android:background="@drawable/login_button_rounded"
+            android:layout_marginTop="60dp"
+            android:layout_gravity="center"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:id="@+id/professorsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="24dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_arrow_back"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back"/>
+
+    </LinearLayout>
+</ScrollView>
+
+
+
+
+
+
+
+
+
+

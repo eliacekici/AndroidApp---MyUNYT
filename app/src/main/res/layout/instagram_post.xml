@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/mainScrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:overScrollMode="never"
+    android:scrollbars="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fullpage_gradient_background"
+        android:clipToPadding="false"
+        android:minHeight="1200dp"
+        android:padding="0dp"
+        tools:context=".MainActivityPage">
+
+        <TextView
+            android:id="@+id/latestNews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="Latest News"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:paddingTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/igPostContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/latestNews">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/butter_milk"
+                android:minHeight="400dp"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:id="@+id/profileContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/profileIcon"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Profile icon"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/outline_account_circle_24"
+                        app:tint="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/profileName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="unyt_official"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/moreOptions"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="16dp"
+                    android:contentDescription="More options"
+                    android:src="@drawable/more_horiz"
+                    app:tint="@android:color/black" />
+
+                <FrameLayout
+                    android:id="@+id/postImageContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profileContainer"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/white"
+                    android:padding="1dp">
+
+                    <ImageView
+                        android:id="@+id/postImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="Instagram post"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/first_post" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/buttonsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/postImageContainer"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp">
+
+                    <ImageView
+                        android:id="@+id/likeButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="Like button"
+                        android:src="@drawable/ic_likebutton"
+                        app:tint="@android:color/black"/>
+
+                    <ImageView
+                        android:id="@+id/commentButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="Comment button"
+                        android:src="@drawable/ic_commentsbutton"
+                        app:tint="@android:color/black"/>
+                    <ImageView
+                        android:id="@+id/shareButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="Share button"
+                        android:src="@drawable/ic_sharebutton"
+                        app:tint="@android:color/black"/>
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:id="@+id/saveButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="Save button"
+                        android:src="@drawable/ic_savebutton"
+                        app:tint="@android:color/black"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/likesCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/buttonsContainer"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:text="1,234 likes"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/postCaption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/likesCount"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Check out our latest campus updates! #UNYT"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/postTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/postCaption"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:text="2 HOURS AGO"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/igPostContainer2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/igPostContainer">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/butter_milk"
+                android:minHeight="400dp"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:id="@+id/profileContainer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/profileIcon2"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Profile icon"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/outline_account_circle_24"
+                        app:tint="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/profileName2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="unyt_official"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/moreOptions2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="16dp"
+                    android:contentDescription="More options"
+                    android:src="@drawable/more_horiz"
+                    app:tint="@android:color/black" />
+
+                <FrameLayout
+                    android:id="@+id/postImageContainer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profileContainer2"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/white"
+                    android:padding="1dp">
+
+                    <ImageView
+                        android:id="@+id/postImage2"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="Instagram post"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/second_post" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/buttonsContainer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/postImageContainer2"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp">
+
+                    <ImageView
+                        android:id="@+id/likeButton2"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="Like button"
+                        android:src="@drawable/ic_likebutton"
+                        app:tint="@android:color/black"/>
+
+                    <ImageView
+                        android:id="@+id/commentButton2"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="Comment button"
+                        android:src="@drawable/ic_commentsbutton"
+                        app:tint="@android:color/black"/>
+                    <ImageView
+                        android:id="@+id/shareButton2"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="Share button"
+                        android:src="@drawable/ic_sharebutton"
+                        app:tint="@android:color/black"/>
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:id="@+id/saveButton2"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="Save button"
+                        android:src="@drawable/ic_savebutton"
+                        app:tint="@android:color/black"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/likesCount2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/buttonsContainer2"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:text="900 likes"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/postCaption2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/likesCount2"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Drugs and Mental Health training program! #UNYT"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/postTime2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/postCaption2"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:text="5 HOURS AGO"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+         </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/igPostContainer3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/igPostContainer2">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/butter_milk"
+                android:minHeight="400dp"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:id="@+id/profileContainer3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/profileIcon3"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Profile icon"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/outline_account_circle_24"
+                        app:tint="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/profileName3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="unyt_official"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/moreOptions3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="16dp"
+                    android:contentDescription="More options"
+                    android:src="@drawable/more_horiz"
+                    app:tint="@android:color/black" />
+
+                <FrameLayout
+                    android:id="@+id/postImageContainer3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profileContainer3"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/white"
+                    android:padding="1dp">
+
+                    <ImageView
+                        android:id="@+id/postImage3"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="Instagram post"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/third_post" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/buttonsContainer3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/postImageContainer3"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp">
+
+                    <ImageView
+                        android:id="@+id/likeButton3"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="Like button"
+                        android:src="@drawable/ic_likebutton"
+                        app:tint="@android:color/black"/>
+
+                    <ImageView
+                        android:id="@+id/commentButton3"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="Comment button"
+                        android:src="@drawable/ic_commentsbutton"
+                        app:tint="@android:color/black"/>
+                    <ImageView
+                        android:id="@+id/shareButton3"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="Share button"
+                        android:src="@drawable/ic_sharebutton"
+                        app:tint="@android:color/black"/>
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:id="@+id/saveButton3"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="Save button"
+                        android:src="@drawable/ic_savebutton"
+                        app:tint="@android:color/black"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/likesCount3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/buttonsContainer3"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:text="1500 likes"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/postCaption3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/likesCount3"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="UNYT-IMU (I am You)! #UNYT"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/postTime3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/postCaption3"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:text="30 MINUTES AGO"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/igPostContainer4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/igPostContainer3">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/butter_milk"
+                android:minHeight="400dp"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:id="@+id/profileContainer4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/profileIcon4"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Profile icon"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/outline_account_circle_24"
+                        app:tint="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/profileName4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="unyt_official"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/moreOptions4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="16dp"
+                    android:contentDescription="More options"
+                    android:src="@drawable/more_horiz"
+                    app:tint="@android:color/black" />
+
+                <FrameLayout
+                    android:id="@+id/postImageContainer4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profileContainer4"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/white"
+                    android:padding="1dp">
+
+                    <ImageView
+                        android:id="@+id/postImage4"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="Instagram post"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/fourth_post" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/buttonsContainer4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/postImageContainer4"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp">
+
+                    <ImageView
+                        android:id="@+id/likeButton4"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="Like button"
+                        android:src="@drawable/ic_likebutton"
+                        app:tint="@android:color/black"/>
+
+                    <ImageView
+                        android:id="@+id/commentButton4"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="Comment button"
+                        android:src="@drawable/ic_commentsbutton"
+                        app:tint="@android:color/black"/>
+                    <ImageView
+                        android:id="@+id/shareButton4"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="Share button"
+                        android:src="@drawable/ic_sharebutton"
+                        app:tint="@android:color/black"/>
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:id="@+id/saveButton4"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="Save button"
+                        android:src="@drawable/ic_savebutton"
+                        app:tint="@android:color/black"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/likesCount4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/buttonsContainer4"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:text="500 likes"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/postCaption4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/likesCount4"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Open lecture! #UNYT"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/postTime4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/postCaption4"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:text="5 MINUTES AGO"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/igPostContainer5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/igPostContainer4">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/butter_milk"
+                android:minHeight="400dp"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:id="@+id/profileContainer5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/profileIcon5"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Profile icon"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/outline_account_circle_24"
+                        app:tint="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/profileName5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="unyt_official"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/moreOptions5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="16dp"
+                    android:contentDescription="More options"
+                    android:src="@drawable/more_horiz"
+                    app:tint="@android:color/black" />
+
+                <FrameLayout
+                    android:id="@+id/postImageContainer5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profileContainer5"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/white"
+                    android:padding="1dp">
+
+                    <ImageView
+                        android:id="@+id/postImage5"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="Instagram post"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/fifth_post" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/buttonsContainer5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/postImageContainer5"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp">
+
+                    <ImageView
+                        android:id="@+id/likeButton5"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="Like button"
+                        android:src="@drawable/ic_likebutton"
+                        app:tint="@android:color/black"/>
+
+                    <ImageView
+                        android:id="@+id/commentButton5"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="Comment button"
+                        android:src="@drawable/ic_commentsbutton"
+                        app:tint="@android:color/black"/>
+                    <ImageView
+                        android:id="@+id/shareButton5"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="Share button"
+                        android:src="@drawable/ic_sharebutton"
+                        app:tint="@android:color/black"/>
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:id="@+id/saveButton5"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="Save button"
+                        android:src="@drawable/ic_savebutton"
+                        app:tint="@android:color/black"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/likesCount5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/buttonsContainer5"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:text="700 likes"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/postCaption5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/likesCount5"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="UNYT Career Fair '25! #UNYT"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/postTime5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/postCaption5"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:text="1 DAY AGO"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/igPostContainer5"/>
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_arrow_back"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

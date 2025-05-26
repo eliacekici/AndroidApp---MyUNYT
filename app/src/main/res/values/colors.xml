@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light_gray">#A0A0A0</color>
+    <color name="unyt_blue">#00115F</color>
+    <color name="white_to_gray">#E5E4E2</color>
+    <color name="radio_text_color_selector">@android:color/white</color>
+    <color name ="dark_grey">#808080</color>
+    <color name="butter_milk">#fef9ed</color>
+    <color name="progress_track">#4DFFFFFF</color>
+    <color name="progress_indicator">#FFFFFF</color>
+</resources>

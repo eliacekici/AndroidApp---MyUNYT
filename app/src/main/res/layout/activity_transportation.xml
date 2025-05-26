@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fullpage_gradient_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Transportation Schedule"
+                android:layout_marginTop="25dp"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="University Shuttle Service"
+                android:textColor="#CCFFFFFF"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#40FFFFFF"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Monday"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:drawablePadding="8dp"
+                    android:drawableStart="@drawable/ic_calendar"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="#80FFFFFF"/>
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="*"
+                    android:shrinkColumns="*">
+
+                    <TableRow>
+                        <TextView
+                            android:text="Entry Time"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:padding="12dp"/>
+                        <TextView
+                            android:text="Exit Time"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:padding="12dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="08:20"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                        <TextView
+                            android:text="12:05"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="12:20"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                        <TextView
+                            android:text="13:05"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="14:20"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                        <TextView
+                            android:text="14:05"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="-"
+                            android:textColor="#80FFFFFF"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                        <TextView
+                            android:text="17:05"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#40FFFFFF"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tuesday"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:drawablePadding="8dp"
+                    android:drawableStart="@drawable/ic_calendar"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="#80FFFFFF"/>
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="*"
+                    android:shrinkColumns="*">
+
+                    <TableRow>
+                        <TextView
+                            android:text="Entry Time"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:padding="12dp"/>
+                        <TextView
+                            android:text="Exit Time"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:padding="12dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="08:20"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                        <TextView
+                            android:text="12:05"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="11:20"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                        <TextView
+                            android:text="15:05"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="12:20"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                        <TextView
+                            android:text="16:05"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="13:20"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                        <TextView
+                            android:text="17:05"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#40FFFFFF"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wednesday"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:drawablePadding="8dp"
+                    android:drawableStart="@drawable/ic_calendar"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="#80FFFFFF"/>
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="*"
+                    android:shrinkColumns="*">
+
+                    <TableRow>
+                        <TextView
+                            android:text="Entry Time"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:padding="12dp"/>
+                        <TextView
+                            android:text="Exit Time"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:padding="12dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="08:20"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                        <TextView
+                            android:text="11:05"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="12:20"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                        <TextView
+                            android:text="12:05"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="13:20"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                        <TextView
+                            android:text="13:05"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="-"
+                            android:textColor="#80FFFFFF"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                        <TextView
+                            android:text="16:05"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#40FFFFFF"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thursday"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:drawablePadding="8dp"
+                    android:drawableStart="@drawable/ic_calendar"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="#80FFFFFF"/>
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="*"
+                    android:shrinkColumns="*">
+
+                    <TableRow>
+                        <TextView
+                            android:text="Entry Time"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:padding="12dp"/>
+                        <TextView
+                            android:text="Exit Time"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:padding="12dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="08:20"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                        <TextView
+                            android:text="12:05"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="12:20"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                        <TextView
+                            android:text="13:05"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="-"
+                            android:textColor="#80FFFFFF"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                        <TextView
+                            android:text="16:05"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="-"
+                            android:textColor="#80FFFFFF"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                        <TextView
+                            android:text="17:05"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#40FFFFFF"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Friday"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:drawablePadding="8dp"
+                    android:drawableStart="@drawable/ic_calendar"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="#80FFFFFF"/>
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="*"
+                    android:shrinkColumns="*">
+
+                    <TableRow>
+                        <TextView
+                            android:text="Entry Time"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:padding="12dp"/>
+                        <TextView
+                            android:text="Exit Time"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:padding="12dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="08:20"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                        <TextView
+                            android:text="12:05"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="12:20"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                        <TextView
+                            android:text="13:05"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="13:20"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                        <TextView
+                            android:text="16:05"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:text="-"
+                            android:textColor="#80FFFFFF"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                        <TextView
+                            android:text="17:05"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:padding="8dp"/>
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_arrow_back"
+            android:contentDescription="Back button"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_margin="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    </LinearLayout>
+</ScrollView>
