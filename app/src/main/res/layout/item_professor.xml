@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="12dp"
-        android:background="@color/white_to_gray">
+        android:background="@color/ash_grey">
 
         <ImageView
             android:id="@+id/professorImage"
@@ -31,6 +31,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="8dp"
             android:text="Professor Name"
+            android:textColor="@android:color/black"
             android:textSize="18sp"
             android:textStyle="bold"/>
 
@@ -41,10 +42,12 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="4dp"
             android:text="Courses"
+            android:textColor="@android:color/black"
             android:textSize="14sp"/>
 
         <RatingBar
             android:id="@+id/professorRating"
+            style="@style/BlackRatingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/fullpage_gradient_background">
+
+
+    <LinearLayout
+        android:id="@+id/inputBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/subjEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="30dp"
+            android:minHeight="48dp"
+            android:hint="@string/label_subject"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:inputType="textCapWords" />
+
+        <AutoCompleteTextView
+            android:id="@+id/profAutoComplete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:minHeight="48dp"
+            android:hint="@string/label_professor"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:inputType="textPersonName"
+            android:singleLine="true" />
+
+        <Spinner
+            android:id="@+id/daySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:minHeight="48dp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#FFFFFF"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+
+            <Button
+                android:id="@+id/startButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@drawable/login_button_rounded"
+                android:textColor="#FFFFFF"
+                android:text="@string/btn_start" />
+
+            <Button
+                android:id="@+id/endButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/login_button_rounded"
+                android:textColor="#FFFFFF"
+                android:text="@string/btn_end" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/addSchedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:minHeight="48dp"
+            android:background="@drawable/login_button_rounded"
+            android:textColor="#FFFFFF"
+            android:text="@string/btn_add" />
+    </LinearLayout>
+
+
+    <HorizontalScrollView
+        android:id="@+id/tableScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:contentDescription="Timetable scrollable view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputBox"
+        app:layout_constraintBottom_toTopOf="@id/summaryText">
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <TableLayout
+                android:id="@+id/timetable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Vertical scroll"
+                android:stretchColumns="*" />
+        </ScrollView>
+    </HorizontalScrollView>
+
+
+    <TextView
+        android:id="@+id/summaryText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tableScroll"
+        app:layout_constraintBottom_toTopOf="@id/confirmBox" />
+
+
+    <LinearLayout
+        android:id="@+id/confirmBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <CheckBox
+            android:id="@+id/confirmCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:textColor="@color/white"
+            android:buttonTint="@color/white"
+            android:text="@string/checkbox_confirm" />
+        <Button
+            android:id="@+id/clearButton"
+            android:layout_width="85dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/login_button_rounded"
+            android:textColor="#FFFFFF"
+            android:text="Clear"/>
+        <Button
+            android:id="@+id/confirmButton"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            android:minHeight="48dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/login_button_rounded"
+            android:textColor="#FFFFFF"
+            android:text="@string/btn_confirm" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,6 @@ public class ProfessorRating {
         this.comment = comment;
     }
 
-    // Getters
     public String getProfessorId() { return professorId; }
     public int getRating() { return rating; }
     public String getComment() { return comment; }

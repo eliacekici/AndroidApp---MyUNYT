@@ -1,5 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <resources>
     <string name="app_name">MyUNYT</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="label_subject">Subject</string>
+    <string name="label_professor">Professor</string>
+    <string name="btn_start">Start</string>
+    <string name="btn_end">End</string>
+    <string name="btn_add">Add</string>
+    <string name="checkbox_confirm">Confirm schedule</string>
+    <string name="btn_confirm">Confirm</string>
 </resources>

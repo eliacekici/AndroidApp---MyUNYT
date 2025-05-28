@@ -8,7 +8,8 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:overScrollMode="never"
-    android:scrollbars="vertical">
+    android:scrollbars="vertical"
+    android:background="@drawable/fullpage_gradient_background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/mainLayout"

@@ -23,7 +23,7 @@
 
     <EditText
         android:id="@+id/emailEditText"
-        android:layout_width="400dp"
+        android:layout_width="350dp"
         android:layout_height="48dp"
         android:layout_marginBottom="0dp"
         android:background="@drawable/rounded_borders_mainpage"
@@ -40,7 +40,7 @@
 
     <EditText
         android:id="@+id/passwordEditText"
-        android:layout_width="400dp"
+        android:layout_width="350dp"
         android:layout_height="48dp"
         android:layout_marginBottom="87dp"
         android:background="@drawable/rounded_borders_mainpage"
@@ -58,7 +58,7 @@
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="173dp"
         android:background="@drawable/login_button_rounded"
@@ -68,5 +68,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:layout_marginBottom="173dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/login_button_rounded"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,4 +5,12 @@
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
+
+    <style name="BlackRatingBar" parent="Widget.AppCompat.RatingBar">
+        <item name="colorControlActivated">@android:color/black</item>
+        <item name="colorControlNormal">@color/dark_grey</item>
+        <item name="android:progressTint">@android:color/black</item>
+        <item name="android:progressBackgroundTint">@color/dark_grey</item>
+        <item name="android:secondaryProgressTint">@color/dark_grey</item>
+    </style>
 </resources>

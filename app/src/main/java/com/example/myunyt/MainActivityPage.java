@@ -36,6 +36,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivityPage extends AppCompatActivity {
 
+    private int userId;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private FrameLayout menuContainer;
@@ -46,10 +47,18 @@ public class MainActivityPage extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main_page);
 
+        userId = getIntent().getIntExtra("USER_ID", -1);
+        if (userId == -1) {
+            finish();
+            return;
+        }
+
         TextView dateTextView = findViewById(R.id.dateTextView);
         TextView welcomeTextView = findViewById(R.id.welcomeTextView);
         LinearLayout transportationButton = findViewById(R.id.transportationButton);
         FrameLayout academicCalendarButton = findViewById(R.id.academicCalendarButton);
+
+        LinearLayout myScheduleButton = findViewById(R.id.myCalendar);
         FrameLayout container = findViewById(R.id.fragment_container);
         ScrollView scrollView = findViewById(R.id.mainScrollView);
 
@@ -71,8 +80,8 @@ public class MainActivityPage extends AppCompatActivity {
         String currentDate = DateFormat.getDateInstance(DateFormat.FULL, Locale.getDefault()).format(new Date());
         dateTextView.setText(currentDate);
 
-        String studentName = "Elia";
-        welcomeTextView.setText("Welcome Back, " + studentName);
+        String uname = getIntent().getStringExtra("USERNAME");
+        welcomeTextView.setText("Welcome, " + uname + "!");
 
         TextView motivationalMessage = findViewById(R.id.motivationalMessage);
         motivationalMessage.setText(getTimeBasedMessage());
@@ -94,6 +103,12 @@ public class MainActivityPage extends AppCompatActivity {
         transportationButton.setOnClickListener(v ->
                 startActivity(new Intent(this, TransportationActivity.class)));
 
+
+        myScheduleButton.setOnClickListener(v -> {
+            Intent i = new Intent(MainActivityPage.this, ScheduleActivity.class);
+            i.putExtra("USER_ID", userId);
+            startActivity(i);
+        });
 
         libraryButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -233,8 +248,4 @@ public class MainActivityPage extends AppCompatActivity {
         int index = dayOfYear % quotes.length;
         return quotes[index];
     }
-
-
-
-
 }

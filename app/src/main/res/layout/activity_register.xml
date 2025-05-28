@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="@drawable/fullpage_gradient_background">
+
+    <EditText
+        android:id="@+id/regUsernameEditText"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="60dp"
+        android:paddingLeft="24dp"
+        android:background="@drawable/rounded_borders_mainpage"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/dark_grey"
+        android:paddingVertical="12dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/regEmailEditText"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/rounded_borders_mainpage"
+        android:hint="Enter your email"
+        android:minWidth="280dp"
+        android:paddingLeft="24dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/dark_grey"
+        android:paddingVertical="12dp"
+        android:inputType="textEmailAddress"
+        app:layout_constraintTop_toBottomOf="@id/regUsernameEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/regPasswordEditText"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="87dp"
+        android:background="@drawable/rounded_borders_mainpage"
+        android:hint="Enter your password"
+        android:inputType="textPassword"
+        android:minWidth="280dp"
+        android:paddingLeft="24dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/dark_grey"
+        app:layout_constraintTop_toBottomOf="@id/regEmailEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+
+    <Button
+        android:id="@+id/regSignupButton"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:text="Done"
+        android:background="@drawable/login_button_rounded"
+        app:layout_constraintTop_toBottomOf="@id/regPasswordEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="60dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
