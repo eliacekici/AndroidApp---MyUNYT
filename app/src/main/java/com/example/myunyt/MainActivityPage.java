@@ -263,7 +263,7 @@ public class MainActivityPage extends AppCompatActivity {
 
         progressBar.setProgress((int) progress);
         progressText.setText(String.format(Locale.getDefault(),
-                "%.0f%% of semester completed", progress));
+                "%.0f%% of school year completed", progress));
     }
 
     private String getDailyMotivationalQuote() {
