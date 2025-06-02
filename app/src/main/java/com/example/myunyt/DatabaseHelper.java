@@ -11,7 +11,7 @@ import java.util.Locale;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME    = "professor_ratings.db";
-    private static final int    DATABASE_VERSION = 9;
+    private static final int    DATABASE_VERSION = 11;
     private static final String T_PROFESSORS = "professors";
     private static final String T_RATINGS    = "ratings";
     private static final String T_USERS      = "users";
@@ -72,13 +72,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(
                 "CREATE TABLE votes (" +
                         "  vote_id      INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        "  user_id      INTEGER NOT NULL," +
                         "  professor_id INTEGER NOT NULL," +
                         "  semester_id  INTEGER NOT NULL," +
                         "  rating       REAL    NOT NULL," +
                         "  comment      TEXT," +
                         "  timestamp    DATETIME DEFAULT CURRENT_TIMESTAMP," +
-                        "  UNIQUE(professor_id, semester_id)," +
-                        "  FOREIGN KEY(professor_id) REFERENCES " + T_PROFESSORS + "(_id))");
+                        "  UNIQUE(user_id, professor_id, semester_id)," +
+                        "  FOREIGN KEY(user_id)      REFERENCES users(user_id)," +
+                        "  FOREIGN KEY(professor_id) REFERENCES professors(_id))");
 
 
         insertSampleProfessors(db);
@@ -238,25 +240,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 .rawQuery(sql, new String[]{ faculty.trim() });
     }
 
-    public Cursor getProfessorsFromConfirmedSchedule(String faculty) {
+    public Cursor getProfessorsFromConfirmedSchedule(int userId) {
+        int semesterId = SemesterUtils.currentSemesterId();
 
         String sql =
-                "SELECT p." + COLUMN_ID + ", " +
-                        "       p." + COLUMN_NAME + ", " +
-                        "       p." + COLUMN_COURSES + ", " +
-                        "       p." + COLUMN_IMAGE   + ", " +
-                        "       (SELECT AVG(r.rating) FROM " + T_RATINGS + " r " +
-                        "         WHERE r.professor_id = p." + COLUMN_ID + ") AS average_rating " +
-                        "FROM "   + T_PROFESSORS + " p " +
-                        "JOIN schedules s ON s.professor_id = p." + COLUMN_ID + " " +
-                        "WHERE s.confirmed = 1 " +
-                        "  AND p." + COLUMN_FACULTY + " = ? " +
-                        "GROUP BY p." + COLUMN_ID + " " +
-                        "ORDER BY p." + COLUMN_NAME;
+                "SELECT p._id, p.name, p.courses, p.image_url, " +
+                        "       v.rating AS my_rating " +
+                        "FROM professors  p " +
+                        "JOIN schedules   s ON s.professor_id = p._id " +
+                        "LEFT JOIN votes  v ON v.professor_id = p._id " +
+                        "                 AND v.user_id = ? " +
+                        "                 AND v.semester_id = ? " +
+                        "WHERE s.user_id = ? AND s.confirmed = 1 " +
+                        "GROUP BY p._id " +
+                        "ORDER BY p.name";
 
-        return getReadableDatabase().rawQuery(sql, new String[]{ faculty });
+        return getReadableDatabase().rawQuery(
+                sql,
+                new String[]{ String.valueOf(userId),
+                        String.valueOf(semesterId),
+                        String.valueOf(userId) });
     }
-
 
     public float getAverageRating(int professorId) {
         try (Cursor c = getReadableDatabase().rawQuery(
@@ -321,4 +325,41 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         insertProfessor(db,"Kristi GOREA, PhD Cand.",       "Engineering and Architecture","Mobile Application Development","image14.jpg");
         insertProfessor(db,"Oltiona SULA, MSc",             "Engineering and Architecture","Data Structures","image15.jpg");
     }
+    public boolean hasUserVotedThisSemester(int userId) {
+        int semesterId = SemesterUtils.currentSemesterId();
+        if (semesterId == 0) return false;
+
+        String query = "SELECT 1 FROM votes v " +
+                "JOIN schedules s ON s.professor_id = v.professor_id " +
+                "WHERE s.user_id = ? AND v.semester_id = ? LIMIT 1";
+
+        try (Cursor c = getReadableDatabase().rawQuery(query,
+                new String[]{String.valueOf(userId), String.valueOf(semesterId)})) {
+            return c.moveToFirst();
+        }
+    }
+
+    public boolean saveOrUpdateVote(int userId, int professorId, float rating) {
+        int semesterId = SemesterUtils.currentSemesterId();
+        if (semesterId == 0) return false;
+
+        ContentValues cv = new ContentValues();
+        cv.put("user_id",      userId);
+        cv.put("professor_id", professorId);
+        cv.put("semester_id",  semesterId);
+        cv.put("rating",       rating);
+
+        int rows = getWritableDatabase().update(
+                "votes", cv,
+                "user_id=? AND professor_id=? AND semester_id=?",
+                new String[]{ String.valueOf(userId),
+                        String.valueOf(professorId),
+                        String.valueOf(semesterId) });
+
+        if (rows == 0) {
+            return getWritableDatabase().insert("votes", null, cv) != -1;
+        }
+        return true;
+    }
+
 }

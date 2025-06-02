@@ -3,13 +3,15 @@ package com.example.myunyt;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +20,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.GravityCompat;
+import androidx.core.view.MenuItemCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -40,6 +43,7 @@ public class MainActivityPage extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private FrameLayout menuContainer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,32 +134,71 @@ public class MainActivityPage extends AppCompatActivity {
     private void setupNavigationView() {
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
+            DatabaseHelper dbHelper = new DatabaseHelper(this);
 
             if (id == R.id.nav_vote) {
-                startActivity(new Intent(this, FacultySelectionActivity.class));
+                if (dbHelper.isScheduleConfirmed(userId)) {
+                    Intent voteIntent = new Intent(this, ProfessorsActivity.class);
+                    voteIntent.putExtra("USER_ID", userId);
+                    voteIntent.putExtra("VOTE_MODE", true);
+                    startActivity(voteIntent);
+                } else {
+                    Toast.makeText(this,
+                            "Please confirm your schedule first before voting",
+                            Toast.LENGTH_LONG).show();
+                }
             } else if (id == R.id.nav_information) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW,
                         Uri.parse("https://www.unyt.edu.al/"));
                 startActivity(browserIntent);
             } else if (id == R.id.nav_location) {
-                openMapLocation();
+
+                View actionView = item.getActionView();
+                RadioGroup radioGroup = actionView.findViewById(R.id.location_radio_group);
+
+                radioGroup.setVisibility(
+                        radioGroup.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
+
+                radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+                    if (checkedId == R.id.main_campus_radio) {
+                        openMapLocation("https://maps.app.goo.gl/hEj3dAUACVwHfs3r6");
+                    } else if (checkedId == R.id.east_campus_radio) {
+                        openMapLocation("https://maps.app.goo.gl/B7sxikCXUBJCqzMr5");
+                    }
+                    radioGroup.setVisibility(View.GONE);
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                });
+
+                return true;
             } else if (id == R.id.nav_instagram) {
-                startActivity(new Intent(this, InstagramPostsActivity.class));
+                openInstagram();
             }
+
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         });
     }
-    private void openMapLocation() {
+
+
+    private void openInstagram() {
         try {
-            String mapsUrl = "https://maps.app.goo.gl/91qxxDaMHDsBHaFH9";
-            Intent mapIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mapsUrl));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/unyt_official/"));
+            intent.setPackage("com.instagram.android");
+            startActivity(intent);
+        } catch (Exception e) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/unyt_official/")));
+        }
+    }
+
+    private void openMapLocation(String mapUrl) {
+        try {
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mapUrl));
             mapIntent.setPackage("com.google.android.apps.maps");
 
             if (mapIntent.resolveActivity(getPackageManager()) != null) {
                 startActivity(mapIntent);
             } else {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mapsUrl));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mapUrl));
                 startActivity(browserIntent);
             }
         } catch (Exception e) {

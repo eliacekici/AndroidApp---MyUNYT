@@ -1,3 +1,5 @@
+
+
 package com.example.myunyt;
 
 import android.util.Log;
@@ -26,6 +28,14 @@ public class ProfessorAdapter extends RecyclerView.Adapter<ProfessorAdapter.Prof
     private List<Professor> professorsFull;
     private OnItemClickListener listener;
     private OnRatingChangedListener ratingListener;
+    private OnSubmitClickListener submitClickListener;
+    private boolean isVoteMode = false;
+
+
+    public void setVoteMode(boolean voteMode) {
+        this.isVoteMode = voteMode;
+        notifyDataSetChanged();
+    }
 
     public interface OnRatingChangedListener {
         void onRatingChanged(int professorId, float rating);
@@ -33,6 +43,10 @@ public class ProfessorAdapter extends RecyclerView.Adapter<ProfessorAdapter.Prof
 
     public interface OnItemClickListener {
         void onItemClick(Professor professor);
+    }
+
+    public interface OnSubmitClickListener {
+        void onSubmitClick();
     }
 
     public ProfessorAdapter(List<Professor> professors) {
@@ -48,6 +62,11 @@ public class ProfessorAdapter extends RecyclerView.Adapter<ProfessorAdapter.Prof
 
         this.listener = listener;
     }
+
+    public void setSubmitClickListener(OnSubmitClickListener listener) {
+        this.submitClickListener = listener;
+    }
+
     public static class ProfessorViewHolder extends RecyclerView.ViewHolder {
         ImageView professorImage;
         TextView professorName;
@@ -62,6 +81,7 @@ public class ProfessorAdapter extends RecyclerView.Adapter<ProfessorAdapter.Prof
             professorCourse = itemView.findViewById(R.id.professorCourse);
             professorRating = itemView.findViewById(R.id.professorRating);
             submitRatingButton = itemView.findViewById(R.id.submitRatingButton);
+
         }
     }
 
@@ -83,8 +103,24 @@ public class ProfessorAdapter extends RecyclerView.Adapter<ProfessorAdapter.Prof
             return;
         }
 
+        holder.submitRatingButton.setVisibility(View.VISIBLE);
+
+        if (professor.hasVoted()) {
+            holder.professorRating.setIsIndicator(true);
+            holder.submitRatingButton.setEnabled(false);
+        } else {
+            holder.professorRating.setIsIndicator(false);
+        }
+
         holder.submitRatingButton.setOnClickListener(v -> {
             float currentRating = holder.professorRating.getRating();
+
+            if (professor.hasVoted()) {
+                Toast.makeText(v.getContext(),
+                        "You cannot vote for " + professor.getName() + " until next semester.",
+                        Toast.LENGTH_SHORT).show();
+                return;
+            }
 
             Toast.makeText(v.getContext(),
                     "Rating submitted: " + currentRating + " stars for " + professor.getName(),
@@ -94,7 +130,13 @@ public class ProfessorAdapter extends RecyclerView.Adapter<ProfessorAdapter.Prof
                 ratingListener.onRatingChanged(professor.getId(), currentRating);
             }
 
-            professor.setRating(currentRating);
+            professor.setHasVoted(true);
+            holder.professorRating.setIsIndicator(true);
+            holder.submitRatingButton.setEnabled(false);
+
+            if (submitClickListener != null) {
+                submitClickListener.onSubmitClick();
+            }
         });
 
         bindProfessorData(holder, professor, position);

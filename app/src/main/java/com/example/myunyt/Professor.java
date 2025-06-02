@@ -7,6 +7,7 @@ public class Professor {
     private String imageUrl;
     private String faculty;
     private float rating;
+    private boolean hasVoted;
 
     public Professor(int id, String name, String courses, String imageUrl, String faculty, float rating) {
         this.id = id;
@@ -15,6 +16,7 @@ public class Professor {
         this.imageUrl = imageUrl != null ? imageUrl : "";
         this.faculty = faculty;
         this.rating = rating;
+        this.hasVoted = false;
     }
 
     public int getId() {
@@ -36,5 +38,11 @@ public class Professor {
     public float getRating() { return rating; }
     public void setRating(float rating) {
         this.rating = rating;
+    }
+    public boolean hasVoted() {
+        return hasVoted;
+    }
+    public void setHasVoted(boolean hasVoted) {
+        this.hasVoted = hasVoted;
     }
 }

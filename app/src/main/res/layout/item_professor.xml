@@ -7,7 +7,8 @@
     android:layout_marginHorizontal="8dp"
     android:layout_marginBottom="12dp"
     app:cardCornerRadius="8dp"
-    app:cardElevation="2dp">
+    app:cardElevation="2dp"
+    android:background="@drawable/fullpage_gradient_background">
 
     <LinearLayout
         android:layout_width="match_parent"

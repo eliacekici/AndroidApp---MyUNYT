@@ -41,10 +41,6 @@
             android:exported="false" />
 
         <activity
-            android:name=".FacultySelectionActivity"
-            android:exported="false" />
-
-        <activity
             android:name=".TransportationActivity"
             android:exported="false" />
 
