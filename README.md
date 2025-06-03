@@ -50,7 +50,7 @@ Kristi Xhumbi
 
 - **Android Studio 4.x or higher**
 - **Android SDK (API 21+)**
-- **Internet access** (needed for loading the UNYT website and—in the future—the Instagram Basic Display API)
+- **Internet access** (needed for loading the UNYT website.)
 
 ### Installation
 
